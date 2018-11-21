@@ -1,35 +1,3 @@
---     __  ____                 _   __                
---    /  |/  (_)_____________  / | / /___ _   ______ _
---   / /|_/ / / ___/ ___/ __ \/  |/ / __ \ | / / __ `/
---  / /  / / / /__/ /  / /_/ / /|  / /_/ / |/ / /_/ / 
--- /_/  /_/_/\___/_/   \____/_/ |_/\____/|___/\__,_/                
--------------------------------------------------------------------------------
--- Title      : Mercury ADC
--- Last update: 2014-11-10
--- Revision   : 1.0.139
--------------------------------------------------------------------------------
--- Copyright (c) 2013 MicroNova, LLC
--- www.micro-nova.com
--------------------------------------------------------------------------------
---
--- This module interfaces with Mercury's onboard MCP3008 ADC.
--- This is an 8-channel 10-bit ADC with an SPI interface.
---
--- To use this module:
--- 1. Drive "diffn" with '1' for single-ended or '0' for 
---    differential input mode.
--- 2. Drive "channel" with the desired ADC channel number.
--- 3. Pulse "trigger" for a single cycle.
--- 4. After ADC has been sampled, this module will pulse "OutVal".
--- 5. "Dout" contains the 10-bit ADC value.
---
--- NOTE: Take care that you do not exceed the maximum sample rate of the ADC.
---       This is 200-ksps for a Vref of 5V and 100-ksps for a Vref of 3.3V,
---       which correspond to clock of 3.6MHz and 1.8MHz respectively.
---       See Microchip's datasheet for more details:
---       http://ww1.microchip.com/downloads/en/DeviceDoc/21295d.pdf
---
-
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
