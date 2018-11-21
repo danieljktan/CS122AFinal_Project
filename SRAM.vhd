@@ -453,7 +453,7 @@ package body gol is
 		--calculate the hamming weight/popcount
 		sum := conv_integer(x0) + conv_integer(x1) + conv_integer(x2) + conv_integer(x3) 
 		     + conv_integer(x4) + conv_integer(x5) + conv_integer(x6) + conv_integer(x7);
-		--alive
+		--alive cell
 		if n='1' then
 			case sum is
 			when 2|3=>
@@ -461,7 +461,7 @@ package body gol is
 			when others=>
 				return '0'; --dead from overpopulation|underpopulation
 			end case;
-		--dead
+		--dead cell
 		else
 			case sum is
 			when 3=>
